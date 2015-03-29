@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/mkhairi/materialize-sass.git
+  revision: 8793148bc2ddcbf895ea77506b1c0b962a78a52d
+  specs:
+    materialize-sass (0.95.3.4)
+      sass (~> 3.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -104,6 +111,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+      json (~> 1.4)
     sass (3.4.13)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -149,6 +157,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  materialize-sass!
   rails (= 4.2.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
