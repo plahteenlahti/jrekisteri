@@ -11,49 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427124148) do
-
-  create_table "memberships", force: :cascade do |t|
-    t.integer  "organization_id"
-    t.integer  "student_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
+ActiveRecord::Schema.define(version: 20150427170243) do
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
-    t.text     "introduction"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
     t.integer  "founded"
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string   "forename"
-    t.string   "surname"
-    t.string   "email"
-    t.string   "city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "subject_id"
-  end
-
-  create_table "subjects", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "forename"
     t.string   "surname"
-    t.string   "city"
-    t.string   "status"
     t.string   "email"
+    t.string   "city"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "organization_id"
-    t.integer  "subject_id"
     t.string   "password_digest"
   end
 

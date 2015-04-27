@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
-  resources :users
-  get 'sessions/new'
-
-  resources :subjects
-  get 'welcome/index'
-
-  resources :memberships
   resources :organizations
+  resources :users
 
-  get    'signup'  => 'users#new'
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  get 'signup', to: 'users#new'
+  get 'signin', to: 'sessions#new'
+  delete 'signout', to: 'sessions#destroy'
+
+  resource :session, only: [:new, :create, :delete]
+
 
 
   root :to => "welcome#index"
