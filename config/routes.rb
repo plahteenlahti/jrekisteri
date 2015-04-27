@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
-  resources :students
+  resources :users
+  get 'sessions/new'
+
+  resources :subjects
+  get 'welcome/index'
+
   resources :memberships
   resources :organizations
+
+  get    'signup'  => 'users#new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
+
+  root :to => "welcome#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

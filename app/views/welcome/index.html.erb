@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jrekisteri</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class="background">
+        <main>
+          <div class="container">
+            <h1 class="login-h1">Hei!</h1>
+            <h5 class="login-h5">Tämä on käyttäytymistieteellisen tiedekunnan ainejärjestöjen yhteinen jäsenrekisteri</h5>
+            <div class="row">
+                <div class="col s12 m4 l8 offset-l2 offset-m4 z-depth-1 login">
+                    <h2 class="center-align">Login</h2>
+                    <form class="col s12">
+                        <div class="row">
+                          <div class="input-field col s12 l6">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                          </div>
+                          <div class="col l6"><%= link_to 'Uusi käyttäjä', new_user_path %></div>
+                        </div>
+                        <div class="row">
+                          <div class="input-field col s12 l6">
+                            <input id="pass" type="password" class="validate">
+                            <label for="pass">Password</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col s12">
+                            <p>
+                              <input type="checkbox" id="remember">
+                              <label for="remember">Remember me</label>
+                            </p>
+                          </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </main>
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+        © 2015 Copyright Perttu Lähteenlahti
+      </div>
+    </div>
+  </footer>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+</body>
+</html>

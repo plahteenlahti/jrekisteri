@@ -1,0 +1,46 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+      <div class="col s12 m6 l6">
+        <%= f.label :forename %><br>
+        <%= f.text_field :forename, class:'validate' %>
+      </div>
+      <div class="field col s12 m6 l6">
+        <%= f.label :surname %><br>
+        <%= f.text_field :surname %>
+      </div>
+      <div class="field col s12 m12 l12">
+        <%= f.label :city %><br>
+        <%= f.text_field :city %>
+      </div>
+      <div class="field col s12 m12 l12">
+        <%= f.label :status %><br>
+        <%= f.text_field :status %>
+      </div>
+      <div class="field col s12 m12 l12">
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+      </div>
+        <div class="field col s12 m12 l12">
+          <%= f.label :password %><br>
+          <%= f.password_field :password %>
+        </div>
+        <div class="field col s12 m12 l12">
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password %>
+      </div>
+      <div class=" col s12 m6 l6 actions">
+        <%= f.submit %>
+      </div>
+  </div>
+<% end %>

@@ -9,17 +9,21 @@
 <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Jäsenrekisteri</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><%= link_to 'Järjestöt', organizations_path %></li>
-        </ul>
+        <div class="container">
+            <%= link_to 'Jäsenrekisteri', root_path ,class:'brand-logo' %>
+            <ul id="nav-mobile" class="right hide-on-med">
+              <li><%= link_to 'Käyttäjät', users_path %><i class="mdi-action-face-unlock"></i>
+              <li><%= link_to 'Järjestöt', organizations_path %><i class="mdi-social-group"></i></li>
+              <li><%= link_to 'Oppiaineet', subjects_path %><i class="mdi-social-group"></i></li>
+            </ul>
+        </div>
       </div>
     </nav>
-    <div class="container">
-
-
-      <%= yield %>
-    </div>
+    <main>
+        <div class="container">
+            <%= yield %>
+        </div>
+    </main>
 
 </body>
 </html>

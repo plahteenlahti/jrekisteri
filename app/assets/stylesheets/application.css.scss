@@ -4,3 +4,31 @@
 
 
 @import "materialize";
+
+
+main {
+  flex: 1 0 auto;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url('http://static.pexels.com/wp-content/uploads/2014/05/adventure-blue-sky-climbing-363.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.login {
+  margin-top: 50px;
+  padding: 40px;
+  background: #fff;
+}
+
+.login-h1,.login-h5{
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 2px #2E2F30;
+}
