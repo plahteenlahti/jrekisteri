@@ -12,8 +12,16 @@
         <div class="container">
             <%= link_to 'Jäsenrekisteri', root_path ,class:'brand-logo' %>
             <ul id="nav-mobile" class="right hide-on-med">
-              <li><%= link_to 'Käyttäjät', users_path %><i class="mdi-action-face-unlock"></i>
+              <li><%= link_to 'Käyttäjät', users_path %><i class="mdi-action-face-unlock"></i></li>
               <li><%= link_to 'Järjestöt', organizations_path %><i class="mdi-social-group"></i></li>
+              <li><%= link_to 'Jäsenyydet', memberships_path %></li>
+              <% if not current_user.nil? %>
+                  <li><%= current_user %> signed in</li>
+                  <li><%= link_to 'Signout', signout_path%></li>
+                  <% else %>
+                  <li><%= link_to 'Signin', signin_path %></li>
+                  <li><%= link_to 'Signup', signup_path %></li>
+              <% end %>
             </ul>
         </div>
       </div>
