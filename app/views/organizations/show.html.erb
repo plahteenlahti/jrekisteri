@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @organization.name %>
-</p>
+<h2><%= @organization.name %></h2>
 
 <p>
   <strong>Founded:</strong>
@@ -16,13 +13,23 @@
 </p>
 
 <h5>Members</h5>
-<ul>
+
+<table class="hoverable">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+    <th>Joined</th>
+  </tr>
+  </thead>
+  <tbody>
   <% @organization.members.each do |member| %>
-      <li>
-        <%= link_to member.to_s, member %>
-      </li>
+    <td><%= link_to member.to_s, member %></td>
+    <td><%= member.city %></td>
+    <td><%= member.created_at %></td>
   <% end %>
-</ul>
+  </tbody>
+</table>
 
 <% if current_user %>
     <% if @organization.members.include?(current_user) %>
@@ -37,6 +44,7 @@
         <% end %>
     <% end %>
 <% end %>
-
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+<div class="controls">
+    <%= link_to 'Edit', edit_organization_path(@organization) %> |
+    <%= link_to 'Back', organizations_path %>
+</div>

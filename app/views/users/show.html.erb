@@ -1,11 +1,7 @@
 <div class="row">
-  <div class="col s12 m4 l4 offset-l4 offset-m4">
+  <div class="col s12 m6 l6 offset-l2 offset-m2">
     <p id="notice"><%= notice %></p>
-    <%= link_to 'Back', users_path %>
-    <p>
-      <strong>Name:</strong>
-      <%= @user.forename %> <%= @user.surname %>
-    </p>
+    <h2> <%= @user.forename %> <%= @user.surname %> </h2>
 
     <p>
       <strong>Email address:</strong>
@@ -17,7 +13,7 @@
       <%= @user.city %>
     </p>
 
-    <h6>Member in following organizations</h6>
+    <h6>Member in following organizations:</h6>
     <ul>
       <% @user.organizations.each do |organization| %>
           <li>
@@ -26,6 +22,9 @@
       <% end %>
     </ul>
 
+    <%= link_to 'Back', users_path %>
     <%= link_to 'Edit your information', edit_user_path(@user) , class:'btn'%>
+
   </div>
+
 </div>
