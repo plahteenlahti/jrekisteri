@@ -10,7 +10,12 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-
+    if @organization.members.include? current_user
+      @membership = @organization.memberships.find_by user_id:current_user.id
+    else
+      @membership = Membership.new
+      @membership.organization = @organization
+    end
   end
 
   # GET /organizations/new

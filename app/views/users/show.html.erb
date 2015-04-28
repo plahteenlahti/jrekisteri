@@ -1,24 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col s12 m4 l4 offset-l4 offset-m4">
+    <p id="notice"><%= notice %></p>
+    <%= link_to 'Back', users_path %>
+    <p>
+      <strong>Name:</strong>
+      <%= @user.forename %> <%= @user.surname %>
+    </p>
 
-<p>
-  <strong>Forename:</strong>
-  <%= @user.forename %>
-</p>
+    <p>
+      <strong>Email address:</strong>
+      <%= @user.email %>
+    </p>
 
-<p>
-  <strong>Surname:</strong>
-  <%= @user.surname %>
-</p>
+    <p>
+      <strong>City:</strong>
+      <%= @user.city %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <h6>Member in following organizations</h6>
+    <ul>
+      <% @user.organizations.each do |organization| %>
+          <li>
+            <%= link_to organization.to_s, organization %>
+          </li>
+      <% end %>
+    </ul>
 
-<p>
-  <strong>City:</strong>
-  <%= @user.city %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <%= link_to 'Edit your information', edit_user_path(@user) , class:'btn'%>
+  </div>
+</div>

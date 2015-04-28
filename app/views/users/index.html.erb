@@ -2,13 +2,13 @@
 
 <h1>Listing Users</h1>
 
-<table>
+<table class="hoverable">
   <thead>
     <tr>
-      <th>Forename</th>
-      <th>Surname</th>
+      <th>Name </th>
       <th>Email</th>
       <th>City</th>
+      <th>Memberships</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,11 +16,20 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.forename %></td>
-        <td><%= user.surname %></td>
+        <td><%= link_to "#{user.forename + " " +  user.surname }", user %></td>
         <td><%= user.email %></td>
         <td><%= user.city %></td>
-        <td><%= link_to 'Show', user %></td>
+        <% if not user.organizations.nil? %>
+            <td>
+            <% user.organizations.each do |organization| %>
+                <%= link_to organization.to_s, organization %> |
+            <% end %>
+            </td>
+        <% else %>
+            <td>Zero memberships</td>
+        <% end %>
+
+
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -30,4 +39,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path , class:"btn btn-primary"%>
