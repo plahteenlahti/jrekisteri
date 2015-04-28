@@ -24,9 +24,11 @@
   </thead>
   <tbody>
   <% @organization.members.each do |member| %>
-    <td><%= link_to member.to_s, member %></td>
-    <td><%= member.city %></td>
-    <td><%= member.created_at %></td>
+      <tr>
+        <td><%= link_to member.to_s, member %></td>
+            <td><%= member.city %></td>
+            <td><%= member.created_at %></td>
+      </tr>
   <% end %>
   </tbody>
 </table>
