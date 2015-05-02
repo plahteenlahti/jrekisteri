@@ -9,23 +9,37 @@
     <ul id="dropdown1" class="dropdown-content">
       <li><%= current_user %></li>
       <li class="divider"></li>
-      <li><%= link_to 'Profile', current_user%></li>
-      <li><%= link_to 'Signout', signout_path%></li>
+      <li><%= link_to '<i class="small mdi-action-account-box"></i> Profile'.html_safe, current_user%></li>
+      <li><%= link_to '<i class="small mdi-navigation-chevron-right"></i> Signout'.html_safe, signout_path%></li>
     </ul>
+
     <nav>
       <div class="nav-wrapper">
         <div class="container">
-            <%= link_to 'Jäsenrekisteri', root_path ,class:'brand-logo' %>
-            <ul id="nav-mobile" class="right hide-on-med">
-              <li><%= link_to 'Käyttäjät', users_path %></li>
-              <li><%= link_to 'Järjestöt', organizations_path %></li>
-              <% if not current_user.nil? %>
-                  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
-                  <% else %>
-                  <li><%= link_to 'Signin', signin_path %></li>
-                  <li><%= link_to 'Signup', signup_path %></li>
-              <% end %>
-            </ul>
+          <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="mdi-navigation-menu"></i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to 'Käyttäjät', users_path %></li>
+            <li><%= link_to 'Järjestöt', organizations_path %></li>
+            <% if not current_user.nil? %>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+            <% else %>
+                <li><%= link_to 'Signin', signin_path %></li>
+                <li><%= link_to 'Signup', signup_path %></li>
+            <% end %>
+          </ul>
+          <%= link_to 'Jäsenrekisteri', root_path ,class:'brand-logo' %>
+              <ul class="side-nav" id="mobile-demo">
+                <li><%= link_to 'Käyttäjät', users_path %></li>
+                <li><%= link_to 'Järjestöt', organizations_path %></li>
+                <% if not current_user.nil? %>
+                    <li><%= link_to current_user, current_user%></li>
+                    <li><%= link_to 'Signout', signout_path%></li>
+                <% else %>
+                    <li><%= link_to 'Signin', signin_path %></li>
+                    <li><%= link_to 'Signup', signup_path %></li>
+                <% end %>
+              </ul>
+          </ul>
         </div>
       </div>
     </nav>
@@ -38,3 +52,4 @@
 
 </body>
 </html>
+

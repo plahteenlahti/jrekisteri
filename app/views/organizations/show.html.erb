@@ -1,52 +1,57 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col s12 l6 m6">
+        <h2><%= @organization.name %></h2>
 
-<h2><%= @organization.name %></h2>
+        <p>
+          <strong>Founded:</strong>
+          <%= @organization.founded %>
+        </p>
 
-<p>
-  <strong>Founded:</strong>
-  <%= @organization.founded %>
-</p>
+        <p>
+          <strong>Description:</strong>
+          <%= @organization.description %>
+        </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @organization.description %>
-</p>
+        <h5>Members</h5>
 
-<h5>Members</h5>
+        <table class="striped centered">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Joined</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @organization.members.each do |member| %>
+              <tr>
+                <td><%= link_to member.to_s, member %></td>
+                    <td><%= member.city %></td>
+                    <td><%= member.created_at %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+    </div>
+    <div class="col s12 l6 m6">
+      <% if current_user %>
+          <% if @organization.members.include?(current_user) %>
+              <%= form_for(@membership, method: "delete") do |f| %>
+                  <%= f.hidden_field :organization_id %>
+                  <%= f.submit value: "end your membership", class:"btn"  %>
+              <% end %>
+          <% else %>
+              <%= form_for(@membership) do |f| %>
+                  <%= f.hidden_field :organization_id %>
+                  <%= f.submit value: "join the organization", class:"btn" %>
+              <% end %>
+          <% end %>
+      <% end %>
+      <%= link_to 'Edit', edit_organization_path(@organization), class: "btn primary"%>
+    </div>
+</div>
 
-<table class="hoverable">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>City</th>
-    <th>Joined</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @organization.members.each do |member| %>
-      <tr>
-        <td><%= link_to member.to_s, member %></td>
-            <td><%= member.city %></td>
-            <td><%= member.created_at %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<% if current_user %>
-    <% if @organization.members.include?(current_user) %>
-        <%= form_for(@membership, method: "delete") do |f| %>
-            <%= f.hidden_field :organization_id %>
-            <%= f.submit value: "end your membership", class:"btn"  %>
-        <% end %>
-    <% else %>
-        <%= form_for(@membership) do |f| %>
-            <%= f.hidden_field :organization_id %>
-            <%= f.submit value: "join the organization", class:"btn" %>
-        <% end %>
-    <% end %>
-<% end %>
 <div class="controls">
-    <%= link_to 'Edit', edit_organization_path(@organization) %> |
     <%= link_to 'Back', organizations_path %>
 </div>

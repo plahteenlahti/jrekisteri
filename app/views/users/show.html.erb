@@ -1,29 +1,31 @@
 <div class="row">
-  <div class="col s12 m6 l6 offset-l2 offset-m2">
+  <div class="col s12 m8 l8 offset-l2 offset-m2">
     <p id="notice"><%= notice %></p>
     <h2> <%= @user.forename %> <%= @user.surname %> </h2>
 
     <p>
-      <strong>Email address:</strong>
+      <i class="small mdi-communication-email"></i> <strong>Email:</strong>
+
       <%= @user.email %>
     </p>
 
     <p>
+      <i class="small mdi-social-location-city"></i>
       <strong>City:</strong>
       <%= @user.city %>
     </p>
+    <%= link_to 'Edit your information', edit_user_path(@user) , class:'btn'%>
 
-    <h6>Member in following organizations:</h6>
-    <ul>
+    <ul class="collection with-header">
+     <li><h5><i class="small mdi-social-group"></i>Member in following organizations:</h5></li>
       <% @user.organizations.each do |organization| %>
           <li>
-            <%= link_to organization.to_s, organization %>
+            <%= link_to organization.to_s, organization, class: 'collection-item'%>
           </li>
       <% end %>
     </ul>
 
-    <%= link_to 'Back', users_path %>
-    <%= link_to 'Edit your information', edit_user_path(@user) , class:'btn'%>
+    <%= link_to ' <i class="small mdi-navigation-arrow-back"></i> Back'.html_safe, users_path %>
 
   </div>
 
