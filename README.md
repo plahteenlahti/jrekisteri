@@ -3,6 +3,8 @@
 Ruby on rails application for student organizations to keep up a membership register
 
 [![Build Status](https://travis-ci.org/plahteenlahti/jrekisteri.svg)](https://travis-ci.org/plahteenlahti/jrekisteri)
+[![Code Climate](https://codeclimate.com/github/plahteenlahti/jrekisteri/badges/gpa.svg)](https://codeclimate.com/github/plahteenlahti/jrekisteri)
+[![Test Coverage](https://codeclimate.com/github/plahteenlahti/jrekisteri/badges/coverage.svg)](https://codeclimate.com/github/plahteenlahti/jrekisteri)
 
 
 ## What?
