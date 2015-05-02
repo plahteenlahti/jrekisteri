@@ -2,7 +2,7 @@
 
 Ruby on rails application for student organizations to keep up a membership register
 
-[![Build Status](https://travis-ci.org/plahteenlahti/jrekisteri.svg)](https://travis-ci.org/plahteenlahti/Kubera)
+[![Build Status](https://travis-ci.org/plahteenlahti/jrekisteri.svg)](https://travis-ci.org/plahteenlahti/jrekisteri)
 
 
 ## What?
