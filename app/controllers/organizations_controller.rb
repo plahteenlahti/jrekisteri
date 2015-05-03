@@ -5,11 +5,14 @@ class OrganizationsController < ApplicationController
   # GET /organizations.json
   def index
     @organizations = Organization.all
+    @board = Board.all
+    @position = Position.all
   end
 
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    @position = Position.new
     if @organization.members.include? current_user
       @membership = @organization.memberships.find_by user_id:current_user.id
     else
@@ -21,6 +24,8 @@ class OrganizationsController < ApplicationController
   # GET /organizations/new
   def new
     @organization = Organization.new
+    @board = Board.new
+    @position = Position.new
   end
 
   # GET /organizations/1/edit
@@ -31,6 +36,8 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(organization_params)
+    @board = Board.new
+    @board.organization = @organization
 
     respond_to do |format|
       if @organization.save
@@ -77,4 +84,5 @@ class OrganizationsController < ApplicationController
     def organization_params
       params.require(:organization).permit(:name, :founded, :description)
     end
+
 end

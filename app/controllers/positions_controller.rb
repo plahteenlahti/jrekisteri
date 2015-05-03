@@ -16,6 +16,7 @@ class PositionsController < ApplicationController
   # GET /positions/new
   def new
     @position = Position.new
+    @organization = Organization.all
   end
 
   # GET /positions/1/edit
@@ -36,6 +37,7 @@ class PositionsController < ApplicationController
         format.json { render json: @position.errors, status: :unprocessable_entity }
       end
     end
+    @organization = Organization.all
   end
 
   # PATCH/PUT /positions/1

@@ -6,6 +6,7 @@ class BoardsController < ApplicationController
   # GET /boards.json
   def index
     @boards = Board.all
+    @position = Position.all
   end
 
   # GET /boards/1
