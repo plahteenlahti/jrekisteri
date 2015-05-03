@@ -8,4 +8,5 @@ languages:
 # - app/controllers/*.py # Exclude specific files type within a folder/subfolders
 # - lib/**/*.rb # Recursively ignore all files ending in .rb
 exclude_paths:
-  -app/controllers/positions_controller.rb
+  - app/controllers/positions_controller.rb
+  - app/controllers/boards_controller.rb
