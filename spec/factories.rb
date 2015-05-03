@@ -12,4 +12,9 @@ FactoryGirl.define do
     founded "1989"
     description "Kognitiotieteen ainejärjestö"
   end
+
+  factory :membership do
+    user_id 1
+    organization_id 1
+  end
 end

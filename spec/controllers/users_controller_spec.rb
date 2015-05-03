@@ -18,147 +18,104 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
+require 'rails_helper'
+
 describe UsersController do
-
-
   render_views
 
   let!(:user){ FactoryGirl.create(:user) }
 
-  # This should return the minimal set of attributes required to create a valid
-  # User. As you add validations to User, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  describe "when logged in" do
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+    before(:each) {
+      session[:user_id] = user.id
+    }
 
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # UsersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
-
-  describe "GET #index" do
-    it "assigns all users as @users" do
-      user = User.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:users)).to eq([user])
-    end
-  end
-
-  describe "GET #show" do
-    it "assigns the requested user as @user" do
-      user = User.create! valid_attributes
-      get :show, {:id => user.to_param}, valid_session
-      expect(assigns(:user)).to eq(user)
-    end
-  end
-
-  describe "GET #new" do
-    it "assigns a new user as @user" do
-      get :new, {}, valid_session
-      expect(assigns(:user)).to be_a_new(User)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested user as @user" do
-      user = User.create! valid_attributes
-      get :edit, {:id => user.to_param}, valid_session
-      expect(assigns(:user)).to eq(user)
-    end
-  end
-
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new User" do
-        expect {
-          post :create, {:user => valid_attributes}, valid_session
-        }.to change(User, :count).by(1)
+    describe "GET #show" do
+      it "assigns the requested user to @user" do
+        get :show, id: user
+        expect(assigns(:user)).to eq(user)
       end
 
-      it "assigns a newly created user as @user" do
-        post :create, {:user => valid_attributes}, valid_session
-        expect(assigns(:user)).to be_a(User)
-        expect(assigns(:user)).to be_persisted
-      end
-
-      it "redirects to the created user" do
-        post :create, {:user => valid_attributes}, valid_session
-        expect(response).to redirect_to(User.last)
+      it "renders the #show view" do
+        get :show, id: user
+        expect(response).to render_template(:show)
       end
     end
 
-    context "with invalid params" do
-      it "assigns a newly created but unsaved user as @user" do
-        post :create, {:user => invalid_attributes}, valid_session
+    describe "GET #new" do
+      before(:each) { get :new }
+
+      it "assigns new user to @user" do
         expect(assigns(:user)).to be_a_new(User)
       end
 
-      it "re-renders the 'new' template" do
-        post :create, {:user => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
+      it "renders the #show view" do
+        expect(response).to render_template(:new)
       end
     end
+
+    describe "GET #destroy" do
+      it "deletes user given in parametres" do
+        get :destroy, id: user
+        expect(User.count).to eq(0)
+      end
+    end
+
+    describe "POST #update" do
+
+      describe "with valid params" do
+        it "updates user" do
+          user_params = {"email"=>"koira@koira.fi", "password"=>"koira","password_confirmation"=>"koira"}
+          put :update, id:user.id, user:user_params
+
+          user2 = User.find_by email:"koira@koira.fi"
+          expect(user2).not_to eq(nil)
+        end
+      end
+
+
+
+      describe "with invalid params" do
+        it "wont update user" do
+          user_params = {"email"=>"ok"}
+          put :update, id:user.id, user:user_params
+
+          user2 = User.find_by email:"koira@koira.fi"
+          expect(user2.email).not_to eq(nil)
+
+          user2 = User.find_by email:"ok"
+          expect(user2).to eq(nil)
+        end
+      end
+    end
+
+
   end
 
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  describe "when not logged in" do
 
-      it "updates the requested user" do
-        user = User.create! valid_attributes
-        put :update, {:id => user.to_param, :user => new_attributes}, valid_session
-        user.reload
-        skip("Add assertions for updated state")
+    describe "POST #create" do
+
+      describe "with valid params" do
+        it "creates and saves user" do
+          user_params = {"email"=>"kissa@koira.fi", "password"=>"koira", "password_confirmation"=>"koira"}
+          expect{
+            post :create, user:user_params
+          }.to change(User,:count).by(1)
+        end
       end
 
-      it "assigns the requested user as @user" do
-        user = User.create! valid_attributes
-        put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
-        expect(assigns(:user)).to eq(user)
+      describe "with invalid params" do
+        it "redirects to users#new" do
+          user_params = {"username"=>"koira@koira.fi", "password"=>"", "password_confirmation"=>""}
+          post :create, user:user_params
+          expect(response).to render_template(:new)
+        end
       end
 
-      it "redirects to the user" do
-        user = User.create! valid_attributes
-        put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
-        expect(response).to redirect_to(user)
-      end
     end
 
-    context "with invalid params" do
-      it "assigns the user as @user" do
-        user = User.create! valid_attributes
-        put :update, {:id => user.to_param, :user => invalid_attributes}, valid_session
-        expect(assigns(:user)).to eq(user)
-      end
-
-      it "re-renders the 'edit' template" do
-        user = User.create! valid_attributes
-        put :update, {:id => user.to_param, :user => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested user" do
-      user = User.create! valid_attributes
-      expect {
-        delete :destroy, {:id => user.to_param}, valid_session
-      }.to change(User, :count).by(-1)
-    end
-
-    it "redirects to the users list" do
-      user = User.create! valid_attributes
-      delete :destroy, {:id => user.to_param}, valid_session
-      expect(response).to redirect_to(users_url)
-    end
   end
 
 end
