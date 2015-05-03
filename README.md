@@ -1,4 +1,4 @@
-# Jrekisteri <img width="50px" src="https://github.com/plahteenlahti/jrekisteri/blob/master/app/assets/images/pl_logo.svg">
+# Jrekisteri <img width="50px" src="jrekisteri/app/assets/images/pl_logo.svg">
 
 Ruby on rails application for student organizations to keep up a membership register
 
