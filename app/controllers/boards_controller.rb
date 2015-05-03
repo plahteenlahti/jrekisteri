@@ -1,3 +1,4 @@
+# :nocov:
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
 
@@ -72,3 +73,4 @@ class BoardsController < ApplicationController
       params.require(:board).permit(:organization_id)
     end
 end
+# :nocov:

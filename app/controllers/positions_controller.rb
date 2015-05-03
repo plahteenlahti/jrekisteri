@@ -1,3 +1,4 @@
+# :nocov:
 class PositionsController < ApplicationController
   before_action :set_position, only: [:show, :edit, :update, :destroy]
 
@@ -72,3 +73,4 @@ class PositionsController < ApplicationController
       params.require(:position).permit(:name, :board_id, :user_id)
     end
 end
+# :nocov:

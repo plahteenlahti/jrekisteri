@@ -35,6 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 group :test do
   gem 'simplecov', require: false
+  gem 'factory_girl_rails'
 end
 
 group :development, :test do

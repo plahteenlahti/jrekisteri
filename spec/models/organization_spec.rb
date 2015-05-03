@@ -1,5 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe Organization, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+describe "with correctly created organization" do
+  let(:organization){ FactoryGirl.create(:organization) }
+
+  it "is saved" do
+    expect(organization).to be_valid
+    expect(Organization.count).to eq(1)
+  end
+
+  it "to_s is correct" do
+    expect(organization.to_s).to eq("Intelligenzia")
+  end
+
 end

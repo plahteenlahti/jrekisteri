@@ -18,7 +18,12 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe UsersController, type: :controller do
+describe UsersController do
+
+
+  render_views
+
+  let!(:user){ FactoryGirl.create(:user) }
 
   # This should return the minimal set of attributes required to create a valid
   # User. As you add validations to User, be sure to
