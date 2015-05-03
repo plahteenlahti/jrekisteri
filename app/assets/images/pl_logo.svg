@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="201px" height="237px" viewBox="0 0 201 237" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12002) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 3 + Mask + PL + Mask Copy 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M0,25.3814614 C0,25.3814614 70.0616457,0.452801279 100.5,0.452801279 C130.938354,0.452801279 201,25.3814614 201,25.3814614 L201,173.800004 C201,185.945568 100.5,236.74574 100.5,236.74574 C100.5,236.74574 8.77698391e-16,191.300984 0,173.8 L0,25.3814614 Z"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Rectangle-3-+-Mask-+-PL-+-Mask-Copy-6" sketch:type="MSLayerGroup">
+            <g id="Rectangle-3-+-Mask-+-PL">
+                <g id="Rectangle-3-+-Mask">
+                    <mask id="mask-2" sketch:name="Mask" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#7049E2" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                    <path d="M173.003188,-32 L253.796674,137.069744 L120.625579,363 L39.8320939,193.930256 L173.003188,-32 L173.003188,-32 Z" id="Rectangle-3" fill="#5430BC" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+                </g>
+                <text id="PL" sketch:type="MSTextLayer" font-family="Helvetica" font-size="117.728571" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="25.8428571" y="143.727273">PL</tspan>
+                </text>
+            </g>
+            <path d="M7.17857143,30.7619343 C7.17857143,30.7619343 72.2358138,7.46235795 100.5,7.46235795 C128.764186,7.46235795 193.821429,30.7619343 193.821429,30.7619343 L193.821429,169.48135 C193.821429,180.833203 100.5,228.313593 100.5,228.313593 C100.5,228.313593 7.17857143,185.838644 7.17857143,169.481347 L7.17857143,30.7619343 Z" id="Mask-Copy-2" stroke="#FFFFFF" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
