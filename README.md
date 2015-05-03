@@ -1,4 +1,4 @@
-# Jrekisteri <img width="50px" src="jrekisteri/app/assets/images/pl_logo.png">
+# Jrekisteri <img width="50px" src="https://github.com/plahteenlahti/jrekisteri/blob/master/app/assets/images/pl_logo.png">
 
 Ruby on rails application for student organizations to keep up a membership register
 
@@ -26,6 +26,7 @@ Log in to the system and add organizations. Organizations have a board which hol
 - need more validations
 - need more restrictions (for example creating new organizations is only possible by sysadmin)
 - More information in the wiki
+
 ## Data model
 [Avalaible at nomnoml](http://www.nomnoml.com/#view/[Organization|%0Aname:%20String;%0Afounded:%20integer;%0Adescription:%20String%0A]%0A%0A[User|%0Aforename:%20String;%0Asurname:%20String;%0Aemail:%20String;%0Acity:%20String;%0Apassword_digest:%20String%0A]%0A%0A[Board|%0Aorganization_id:%20integer%0A]%0A%0A[Membership|%0Auser_id:%20integer;%0Aorganization_id:%20integer%0A]%0A%0A[Position|%0Aname:%20String;%0Aboard_id:%20integer;%0Auser_id:%20integer%0A]%0A%0A[User]+->%201..*[Membership]%0A[Membership]*-->1[Organization]%0A[Board]1-->1[Organization]%0A[Position]*-->1[Board]%0A[User]1->0..*[Position])
 
