@@ -1,4 +1,4 @@
-# Jrekisteri <img src="https://photos-5.dropbox.com/t/2/AAALckCK37_fLt0Auo7dagKTS55UiKc-dNIMN2eS18SnMg/12/11356726/png/1024x768/3/1430654400/0/2/pl_logo.svg/CLaUtQUgASACIAMoASgC/LnUqNwmtfy1-oBnYO7s0gvjfxylQJGu93R5EZ9GiiXA">
+# Jrekisteri <img width="50px" src="https://photos-5.dropbox.com/t/2/AAALckCK37_fLt0Auo7dagKTS55UiKc-dNIMN2eS18SnMg/12/11356726/png/1024x768/3/1430654400/0/2/pl_logo.svg/CLaUtQUgASACIAMoASgC/LnUqNwmtfy1-oBnYO7s0gvjfxylQJGu93R5EZ9GiiXA">
 
 Ruby on rails application for student organizations to keep up a membership register
 
