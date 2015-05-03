@@ -33,21 +33,6 @@
         1,
         null
       ],
-      "/Users/Perttu/Projektit/jrekisteri/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        26,
-        0,
-        null,
-        null
-      ],
       "/Users/Perttu/Projektit/jrekisteri/app/controllers/memberships_controller.rb": [
         1,
         1,
@@ -122,6 +107,24 @@
         null,
         1,
         0,
+        null,
+        null
+      ],
+      "/Users/Perttu/Projektit/jrekisteri/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        26,
+        0,
+        null,
+        null,
         null,
         null
       ],
@@ -448,10 +451,9 @@
         null,
         null
       ],
-      "/Users/Perttu/Projektit/jrekisteri/app/models/user.rb": [
+      "/Users/Perttu/Projektit/jrekisteri/app/models/organization.rb": [
         1,
         1,
-        null,
         1,
         1,
         null,
@@ -460,9 +462,10 @@
         null,
         null
       ],
-      "/Users/Perttu/Projektit/jrekisteri/app/models/organization.rb": [
+      "/Users/Perttu/Projektit/jrekisteri/app/models/user.rb": [
         1,
         1,
+        null,
         1,
         1,
         null,
@@ -485,6 +488,6 @@
         null
       ]
     },
-    "timestamp": 1430638123
+    "timestamp": 1430638555
   }
 }

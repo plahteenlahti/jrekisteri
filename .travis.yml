@@ -10,3 +10,7 @@ script:
  - bundle exec rake db:test:prepare
  - bundle exec rspec -fd spec/
 
+addons:
+   code_climate:
+     repo_token:
+         secure:

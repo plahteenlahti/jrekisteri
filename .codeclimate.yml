@@ -7,3 +7,5 @@ languages:
 # - app/controllers/* # Exclude all contents of a folder (including all subfolders)
 # - app/controllers/*.py # Exclude specific files type within a folder/subfolders
 # - lib/**/*.rb # Recursively ignore all files ending in .rb
+exclude_paths:
+  -app/controllers/positions_controller.rb
