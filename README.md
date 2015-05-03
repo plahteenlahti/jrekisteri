@@ -1,4 +1,4 @@
-# Jrekisteri
+# Jrekisteri <img src="https://www.dropbox.com/s/reu2webehaajral/pl_logo.svg?dl=0">
 
 Ruby on rails application for student organizations to keep up a membership register
 
