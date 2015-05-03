@@ -76,29 +76,21 @@ RSpec.describe OrganizationsController, type: :controller do
       it "updates the requested organization" do
           organization_params = {"name"=>"Ebe"}
           put :update, id:organization.id, organization:organization_params
-
-
           organization2 = Organization.find_by name:"Ebe"
           expect(organization2).not_to eq(nil)
       end
 
       it "redirects to the organization" do
-        organization = Organization.create! valid_attributes
-        put :update, {:id => organization.to_param, :organization => valid_attributes}, valid_session
+        organization_params = {"name"=>"Ebe"}
+        put :update, id:organization.id, organization:organization_params
         expect(response).to redirect_to(organization)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the organization as @organization" do
-        organization = Organization.create! valid_attributes
-        put :update, {:id => organization.to_param, :organization => invalid_attributes}, valid_session
-        expect(assigns(:organization)).to eq(organization)
-      end
-
       it "re-renders the 'edit' template" do
-        organization = Organization.create! valid_attributes
-        put :update, {:id => organization.to_param, :organization => invalid_attributes}, valid_session
+        organization_params = {"name"=>"e"}
+        put :update, id:organization.id, organization:organization_params
         expect(response).to render_template("edit")
       end
     end
@@ -106,17 +98,15 @@ RSpec.describe OrganizationsController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested organization" do
-      organization = Organization.create! valid_attributes
-      expect {
-        delete :destroy, {:id => organization.to_param}, valid_session
-      }.to change(Organization, :count).by(-1)
+      get :destroy, id: organization
+      expect(Organization.count).to eq(0)
     end
 
     it "redirects to the organizations list" do
-      organization = Organization.create! valid_attributes
-      delete :destroy, {:id => organization.to_param}, valid_session
+      get :destroy, id: organization
       expect(response).to redirect_to(organizations_url)
     end
   end
 
 end
+
