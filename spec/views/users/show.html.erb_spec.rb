@@ -9,12 +9,4 @@ RSpec.describe "users/show", type: :view do
       :city => "City"
     ))
   end
-
-  it "renders attributes in <p>" do
-    render
-    expect(rendered).to match(/Forename/)
-    expect(rendered).to match(/Surname/)
-    expect(rendered).to match(/Email/)
-    expect(rendered).to match(/City/)
-  end
 end
